@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import LeadForm from './components/LeadForm';
 import LeadTable from './components/LeadTable';
+import { getApiUrl } from './config/api';
 
 function App() {
   const [leads, setLeads] = useState([]);
@@ -13,7 +14,7 @@ function App() {
       setLoading(true);
       setError('');
 
-      let url = '/api/leads';
+      let url = getApiUrl('api/leads');
       if (status && status !== 'All') {
         const encoded = encodeURIComponent(status);
         url += `?status=${encoded}`;
@@ -50,7 +51,7 @@ function App() {
     try {
       setLoading(true);
       setError('');
-      const res = await fetch('/api/leads/enrich', {
+      const res = await fetch(getApiUrl('api/leads/enrich'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

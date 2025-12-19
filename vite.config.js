@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     port: 3000,
     proxy: {
-      '/api': 'https://smart-lead-backend-2.onrender.com'
+      '/api': 'https://smart-leads-automation-system-rjnk.vercel.app'
     }
   }
 });
